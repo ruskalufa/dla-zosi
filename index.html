@@ -67,5 +67,81 @@ button:hover {
 
 @keyframes fall {
   to {
-    transf
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="intro">
+  <h1>MYŚLISZ ŻE SERIO<br>COŚ TU JEST? 😈</h1>
+  <button onclick="goTo('question')">Sprawdź 😏</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="question">
+  <h1>
+    Kocham Cię Zosia.<br>
+    Zostaniesz moją walentynką?
+  </h1>
+
+  <button onclick="yes()">TAK ❤️</button>
+  <button onclick="no()">NIE 🙄</button>
+
+  <div id="noText" style="display:none; font-size:22px; margin-top:20px;">
+    Nie masz innej opcji 😌
+  </div>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="final">
+  <h1>
+    💍 Oficjalnie jesteśmy parą 💍<br>
+    Stokrotki to dopiero początek 🌼❤️
+  </h1>
+</div>
+
+<!-- MUZYKA -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function yes() {
+  goTo('final');
+}
+
+function no() {
+  document.getElementById('noText').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('noText').style.display = 'none';
+  }, 2000);
+}
+
+function floatThing() {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.innerHTML = Math.random() > 0.5 ? "❤️" : "🌼";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 6000);
+}
+
+setInterval(floatThing, 300);
+</script>
+
+</body>
+</html>
+
 
