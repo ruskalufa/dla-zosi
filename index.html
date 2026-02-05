@@ -10,7 +10,8 @@ body {
   margin: 0;
   height: 100vh;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #fff1f5, #ffeef0);
+  /* Zmienione tło na gradient niebiesko-fioletowy */
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +26,8 @@ body {
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(0,0,0,0.15);
   animation: fade 1.5s;
+  position: relative;
+  z-index: 10;
 }
 
 .screen.active {
@@ -106,7 +109,7 @@ button:hover {
 </div>
 
 <!-- MUZYKA -->
-<audio autoplay loop>
+<audio autoplay loop muted>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
@@ -143,5 +146,3 @@ setInterval(floatThing, 300);
 
 </body>
 </html>
-
-
